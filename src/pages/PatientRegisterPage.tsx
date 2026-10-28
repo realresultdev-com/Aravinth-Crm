@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
 import {
-  UserPlus,
   AlertCircle,
   CheckCircle,
   ArrowLeft,
   AlertTriangle,
-  HeartPulse,
   Save,
-  Phone,
-  Mail,
-  Calendar,
   User,
-  MapPin,
 } from 'lucide-react'
 import { api } from '../api/client'
 import { NavTab } from '../components/Layout'
@@ -39,15 +33,6 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
   const [address, setAddress] = useState('')
   const [emergencyName, setEmergencyName] = useState('')
   const [emergencyPhone, setEmergencyPhone] = useState('')
-
-  // Dental & Medical Clinical Fields
-  const [chiefComplaint, setChiefComplaint] = useState('')
-  const [medicalHistory, setMedicalHistory] = useState('')
-  const [allergies, setAllergies] = useState('')
-  const [medications, setMedications] = useState('')
-  const [dentalHistory, setDentalHistory] = useState('')
-  const [previousTreatments, setPreviousTreatments] = useState('')
-  const [dentistNotes, setDentistNotes] = useState('')
 
   // Auto calculate age when DOB changes
   const handleDobChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,13 +79,6 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
         address: address.trim() || undefined,
         emergency_name: emergencyName.trim() || undefined,
         emergency_phone: emergencyPhone.trim() || undefined,
-        chief_complaint: chiefComplaint.trim() || undefined,
-        medical_history: medicalHistory.trim() || undefined,
-        allergies: allergies.trim() || undefined,
-        medications: medications.trim() || undefined,
-        dental_history: dentalHistory.trim() || undefined,
-        previous_treatments: previousTreatments.trim() || undefined,
-        dentist_notes: dentistNotes.trim() || undefined,
       }
 
       const res = await api.patients.create(payload, forceDuplicate)
@@ -155,13 +133,8 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
               setAge('')
               setGender('')
               setAddress('')
-              setChiefComplaint('')
-              setMedicalHistory('')
-              setAllergies('')
-              setMedications('')
-              setDentalHistory('')
-              setPreviousTreatments('')
-              setDentistNotes('')
+              setEmergencyName('')
+              setEmergencyPhone('')
             }}
             className="px-4 py-2 rounded border border-[#E2E5E0] bg-white text-[#202421] text-xs font-medium hover:border-[#276B65] cursor-pointer"
           >
@@ -187,7 +160,7 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
           <div>
             <h1 className="text-lg font-bold text-[#202421]">New Patient Registration</h1>
             <p className="text-xs text-[#6B716D]">
-              Record patient demographics, emergency contact, and dental-specific medical history
+              Record patient demographics and contact details
             </p>
           </div>
         </div>
@@ -247,12 +220,12 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
 
       {/* Main Registration Form */}
       <form onSubmit={(e) => handleSubmit(e, false)} className="space-y-6">
-        {/* Section 1: Demographics */}
+        {/* Patient Demographics & Contact */}
         <div className="bg-white border border-[#E2E5E0] rounded p-5 space-y-4">
           <div className="pb-3 border-b border-[#E2E5E0] flex items-center justify-between">
             <h2 className="text-xs font-bold uppercase tracking-wider text-[#276B65] flex items-center gap-1.5">
               <User className="w-4 h-4" />
-              <span>1. Patient Demographics & Contact</span>
+              <span>Patient Demographics & Contact</span>
             </h2>
             <span className="text-[11px] text-[#6B716D]">* Required fields</span>
           </div>
@@ -267,7 +240,6 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                placeholder="e.g. Senthil Kumar M"
                 className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
               />
             </div>
@@ -281,7 +253,6 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
                 required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="e.g. 98421 11223"
                 className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
               />
             </div>
@@ -294,7 +265,6 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="e.g. patient@example.com"
                 className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
               />
             </div>
@@ -321,7 +291,6 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
                 max="125"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                placeholder="Auto-calculated or enter"
                 className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
               />
             </div>
@@ -350,7 +319,6 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
                 type="text"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                placeholder="e.g. 14/B Trichy Road, Mohanur, Namakkal"
                 className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
               />
             </div>
@@ -363,7 +331,6 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
                 type="text"
                 value={emergencyName}
                 onChange={(e) => setEmergencyName(e.target.value)}
-                placeholder="Spouse / Parent / Guardian"
                 className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
               />
             </div>
@@ -376,103 +343,7 @@ export function PatientRegisterPage({ onNavigate }: PatientRegisterPageProps) {
                 type="tel"
                 value={emergencyPhone}
                 onChange={(e) => setEmergencyPhone(e.target.value)}
-                placeholder="Emergency phone number"
                 className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Section 2: Dental Specific Clinical Details */}
-        <div className="bg-white border border-[#E2E5E0] rounded p-5 space-y-4">
-          <div className="pb-3 border-b border-[#E2E5E0]">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-[#276B65] flex items-center gap-1.5">
-              <HeartPulse className="w-4 h-4" />
-              <span>2. Dental Care & Medical History</span>
-            </h2>
-            <p className="text-[11px] text-[#6B716D] mt-0.5">
-              Essential for clinical safety, anesthesia suitability, and treatment planning
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            <div>
-              <label className="block text-xs font-semibold text-[#202421] mb-1">
-                Chief Dental Complaint
-              </label>
-              <textarea
-                rows={2}
-                value={chiefComplaint}
-                onChange={(e) => setChiefComplaint(e.target.value)}
-                placeholder="Reason for visit, symptoms, duration, location of pain or discomfort..."
-                className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-semibold text-[#202421] mb-1">
-                  Medical History (Diabetes, BP, Cardiac, Bleeding Disorders)
-                </label>
-                <textarea
-                  rows={2}
-                  value={medicalHistory}
-                  onChange={(e) => setMedicalHistory(e.target.value)}
-                  placeholder="e.g. Type 2 Diabetes (HbA1c 6.8), Hypertension..."
-                  className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#C53030] mb-1">
-                  Known Drug Allergies (Penicillin, Local Anesthetics, Latex)
-                </label>
-                <textarea
-                  rows={2}
-                  value={allergies}
-                  onChange={(e) => setAllergies(e.target.value)}
-                  placeholder="e.g. Penicillin allergy, Sulfa drugs, or 'None'"
-                  className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421] focus:outline-none focus:border-[#C53030]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#202421] mb-1">
-                  Current Medications (Blood thinners, insulin, etc.)
-                </label>
-                <textarea
-                  rows={2}
-                  value={medications}
-                  onChange={(e) => setMedications(e.target.value)}
-                  placeholder="List regular prescriptions and dosages"
-                  className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#202421] mb-1">
-                  Previous Dental Treatments & Oral History
-                </label>
-                <textarea
-                  rows={2}
-                  value={dentalHistory}
-                  onChange={(e) => setDentalHistory(e.target.value)}
-                  placeholder="Past fillings, extractions, RCTs, or adverse anesthetic reactions..."
-                  className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-[#202421] mb-1">
-                Internal Notes for Dentist
-              </label>
-              <textarea
-                rows={2}
-                value={dentistNotes}
-                onChange={(e) => setDentistNotes(e.target.value)}
-                placeholder="Clinical observations, patient anxiety notes, or special handling instructions..."
-                className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421] focus:outline-none focus:border-[#276B65]"
               />
             </div>
           </div>
