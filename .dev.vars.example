@@ -1,0 +1,10 @@
+# Dr. Aravinth Dental Care CRM - Cloudflare Worker Environment Variables Example
+# Copy this file to .dev.vars for local overrides.
+# DO NOT commit real secrets or production credentials.
+
+# Optional: Session encryption salt or Pepper (if configured)
+SESSION_SECRET=local-dev-session-secret-change-in-production-min-32-chars
+
+# Clinic Environment
+ENVIRONMENT=development
+CLINIC_TIMEZONE=Asia/Kolkata

@@ -1,0 +1,37 @@
+{
+  "name": "aravinth-dental-crm",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:worker": "wrangler dev",
+    "dev:all": "concurrently -k -n worker,vite -c green,cyan 'wrangler dev' 'vite'",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "db:migrate:local": "wrangler d1 migrations apply aravinth_dental_db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply aravinth_dental_db --remote",
+    "deploy": "npm run build && wrangler deploy",
+    "test": "node --test tests/api.test.js"
+  },
+  "dependencies": {
+    "lucide-react": "^1.57.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261014.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "concurrently": "^10.0.6",
+    "oxlint": "^1.81.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0",
+    "wrangler": "^4.151.0"
+  }
+}
