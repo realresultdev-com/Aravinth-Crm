@@ -54,7 +54,11 @@ export function LoginPage() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4" autoComplete="off">
+            {/* Decoy hidden fields to trap browser password managers from autofilling */}
+            <input type="text" name="fakeusernameremembered" className="sr-only" tabIndex={-1} autoComplete="off" />
+            <input type="password" name="fakepasswordremembered" className="sr-only" tabIndex={-1} autoComplete="off" />
+
             <div>
               <label className="block text-xs font-semibold text-[#202421] mb-1">
                 Username
@@ -64,8 +68,11 @@ export function LoginPage() {
                   <User className="w-4 h-4" />
                 </span>
                 <input
+                  id="staff_login_username"
+                  name="staff_login_username"
                   type="text"
                   required
+                  autoComplete="off"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="Enter staff username"
@@ -83,8 +90,11 @@ export function LoginPage() {
                   <Lock className="w-4 h-4" />
                 </span>
                 <input
+                  id="staff_login_password"
+                  name="staff_login_password"
                   type="password"
                   required
+                  autoComplete="new-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
