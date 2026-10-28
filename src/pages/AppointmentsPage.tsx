@@ -326,7 +326,6 @@ export function AppointmentsPage({ initialPatientId, onNavigate }: AppointmentsP
                     type="text"
                     value={patientSearch}
                     onChange={(e) => setPatientSearch(e.target.value)}
-                    placeholder="Filter patient by name or phone..."
                     className="w-full bg-[#FAFAF7] border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
                   />
                   <select
@@ -387,7 +386,6 @@ export function AppointmentsPage({ initialPatientId, onNavigate }: AppointmentsP
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Scaling & Polishing, RCT Sitting 2, Extraction..."
                   value={newReason}
                   onChange={(e) => setNewReason(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
@@ -398,7 +396,6 @@ export function AppointmentsPage({ initialPatientId, onNavigate }: AppointmentsP
                 <label className="block font-semibold text-[#202421] mb-1">Staff Notes</label>
                 <textarea
                   rows={2}
-                  placeholder="Patient requests morning slot, fasting instructions..."
                   value={newNotes}
                   onChange={(e) => setNewNotes(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421]"

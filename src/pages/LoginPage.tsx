@@ -75,7 +75,6 @@ export function LoginPage() {
                   autoComplete="off"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Enter staff username"
                   className="w-full bg-white border border-[#E2E5E0] rounded pl-9 pr-3 py-2 text-xs text-[#202421] placeholder-[#6B716D]/60 focus:outline-none focus:border-[#276B65] focus:ring-1 focus:ring-[#276B65] transition-colors"
                 />
               </div>
@@ -97,7 +96,6 @@ export function LoginPage() {
                   autoComplete="new-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Enter your password"
                   className="w-full bg-white border border-[#E2E5E0] rounded pl-9 pr-3 py-2 text-xs text-[#202421] placeholder-[#6B716D]/60 focus:outline-none focus:border-[#276B65] focus:ring-1 focus:ring-[#276B65] transition-colors"
                 />
               </div>

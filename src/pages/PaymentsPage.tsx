@@ -356,7 +356,6 @@ export function PaymentsPage({ initialPatientId, initialTreatmentId, onNavigate 
                     type="text"
                     value={patientSearch}
                     onChange={(e) => setPatientSearch(e.target.value)}
-                    placeholder="Search patient..."
                     className="w-full bg-[#FAFAF7] border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
                   />
                   <select
@@ -437,7 +436,6 @@ export function PaymentsPage({ initialPatientId, initialTreatmentId, onNavigate 
                   <label className="block font-semibold text-[#202421] mb-1">Transaction Ref / UTR</label>
                   <input
                     type="text"
-                    placeholder="e.g. UPI/3948192841/GPay"
                     value={transactionRef}
                     onChange={(e) => setTransactionRef(e.target.value)}
                     className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
@@ -449,7 +447,6 @@ export function PaymentsPage({ initialPatientId, initialTreatmentId, onNavigate 
                 <label className="block font-semibold text-[#202421] mb-1">Internal Billing Notes</label>
                 <textarea
                   rows={2}
-                  placeholder="e.g. Part payment for crown sitting 1. Balance due on delivery."
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421]"

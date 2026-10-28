@@ -384,7 +384,6 @@ export function SettingsPage() {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Dr. Kavin Kumar BDS"
                   value={newStaffName}
                   onChange={(e) => setNewStaffName(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs"
@@ -396,7 +395,6 @@ export function SettingsPage() {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. dr.kavin"
                   value={newStaffUsername}
                   onChange={(e) => setNewStaffUsername(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs"
@@ -409,7 +407,6 @@ export function SettingsPage() {
                   type="password"
                   required
                   minLength={8}
-                  placeholder="Min 8 characters"
                   value={newStaffPassword}
                   onChange={(e) => setNewStaffPassword(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs"

@@ -302,7 +302,6 @@ export function TreatmentsPage({ initialPatientId, onNavigate }: TreatmentsPageP
                     type="text"
                     value={patientSearch}
                     onChange={(e) => setPatientSearch(e.target.value)}
-                    placeholder="Search patient..."
                     className="w-full bg-[#FAFAF7] border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
                   />
                   <select
@@ -326,7 +325,6 @@ export function TreatmentsPage({ initialPatientId, onNavigate }: TreatmentsPageP
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Ultrasonic Scaling, Single Sitting RCT, Zirconia Crown..."
                   value={procedureName}
                   onChange={(e) => setProcedureName(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
@@ -338,7 +336,6 @@ export function TreatmentsPage({ initialPatientId, onNavigate }: TreatmentsPageP
                   <label className="block font-semibold text-[#202421] mb-1">Tooth Number (FDI/Universal)</label>
                   <input
                     type="text"
-                    placeholder="e.g. 16, 21, 36, 48, or 'All'"
                     value={toothNumber}
                     onChange={(e) => setToothNumber(e.target.value)}
                     className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
@@ -350,7 +347,6 @@ export function TreatmentsPage({ initialPatientId, onNavigate }: TreatmentsPageP
                     type="number"
                     min="0"
                     required
-                    placeholder="1500"
                     value={estimatedCostInr}
                     onChange={(e) => setEstimatedCostInr(e.target.value)}
                     className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
@@ -375,7 +371,6 @@ export function TreatmentsPage({ initialPatientId, onNavigate }: TreatmentsPageP
                 <label className="block font-semibold text-[#202421] mb-1">Clinical Notes</label>
                 <textarea
                   rows={2}
-                  placeholder="Material specifications, shades, lab instructions..."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421]"

@@ -270,7 +270,6 @@ export function ConsultationsPage({ initialPatientId, onNavigate }: Consultation
                     type="text"
                     value={patientSearch}
                     onChange={(e) => setPatientSearch(e.target.value)}
-                    placeholder="Search patient..."
                     className="w-full bg-[#FAFAF7] border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
                   />
                   <select
@@ -293,7 +292,6 @@ export function ConsultationsPage({ initialPatientId, onNavigate }: Consultation
                 <label className="block font-semibold text-[#202421] mb-1">Chief Dental Complaint</label>
                 <input
                   type="text"
-                  placeholder="e.g. Pain in lower right molar, bleeding gums..."
                   value={chiefComplaint}
                   onChange={(e) => setChiefComplaint(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
@@ -304,7 +302,6 @@ export function ConsultationsPage({ initialPatientId, onNavigate }: Consultation
                 <label className="block font-semibold text-[#202421] mb-1">Clinical Observations & X-Ray Findings</label>
                 <textarea
                   rows={2}
-                  placeholder="Tooth mobility, pocket depth, radiographic radiolucency..."
                   value={examinationNotes}
                   onChange={(e) => setExaminationNotes(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421]"
@@ -316,7 +313,6 @@ export function ConsultationsPage({ initialPatientId, onNavigate }: Consultation
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Irreversible pulpitis irt 46, Chronic marginal gingivitis..."
                   value={diagnosis}
                   onChange={(e) => setDiagnosis(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"
@@ -327,7 +323,6 @@ export function ConsultationsPage({ initialPatientId, onNavigate }: Consultation
                 <label className="block font-semibold text-[#202421] mb-1">Treatment Recommendation</label>
                 <textarea
                   rows={2}
-                  placeholder="Advised root canal treatment followed by ceramic crown..."
                   value={treatmentRecommendation}
                   onChange={(e) => setTreatmentRecommendation(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421]"
@@ -338,7 +333,6 @@ export function ConsultationsPage({ initialPatientId, onNavigate }: Consultation
                 <label className="block font-semibold text-[#202421] mb-1">Prescription Notes</label>
                 <textarea
                   rows={2}
-                  placeholder="Tab. Amoxicillin 500mg TDS x 5 days, Tab. Paracetamol 650mg SOS..."
                   value={prescriptionNotes}
                   onChange={(e) => setPrescriptionNotes(e.target.value)}
                   className="w-full bg-white border border-[#E2E5E0] rounded p-2 text-xs text-[#202421]"
@@ -362,7 +356,6 @@ export function ConsultationsPage({ initialPatientId, onNavigate }: Consultation
                   <label className="block font-semibold text-[#202421] mb-1">Follow-up Reason</label>
                   <input
                     type="text"
-                    placeholder="Check obturation, suture removal..."
                     value={followUpRecommendation}
                     onChange={(e) => setFollowUpRecommendation(e.target.value)}
                     className="w-full bg-white border border-[#E2E5E0] rounded px-3 py-1.5 text-xs text-[#202421]"

@@ -98,7 +98,6 @@ export function PatientsPage({ onNavigate }: PatientsPageProps) {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search by Patient ID, Name, or Phone..."
               className="w-full bg-[#FAFAF7] border border-[#E2E5E0] rounded pl-8 pr-3 py-1.5 text-xs text-[#202421] placeholder-[#6B716D]/70 focus:outline-none focus:border-[#276B65] focus:bg-white"
             />
           </div>
